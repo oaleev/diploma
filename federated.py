@@ -4,7 +4,8 @@ import os
 
 def get_current_identity():
     """Get current caller identity to verify credentials"""
-    sts = boto3.client('sts')
+    # Create STS client with a default region
+    sts = boto3.client('sts', region_name='us-east-1')  # Added default region
     try:
         identity = sts.get_caller_identity()
         print(f"Currently executing as: {identity['Arn']}")
@@ -16,7 +17,8 @@ def get_current_identity():
 def get_all_regions():
     """Get list of all AWS regions"""
     try:
-        ec2_client = boto3.client('ec2')
+        # Create EC2 client with a default region
+        ec2_client = boto3.client('ec2', region_name='us-east-1')  # Added default region
         regions = [region['RegionName'] for region in ec2_client.describe_regions()['Regions']]
         return regions
     except ClientError as e:
@@ -27,7 +29,7 @@ def get_eks_clusters_and_nodegroups(region):
     """Get EKS clusters and their nodegroups for a specific region"""
     try:
         # Create EKS client for the specified region using the federated credentials
-        session = boto3.Session()
+        session = boto3.Session(region_name=region)  # Specify region in session
         eks_client = session.client('eks', region_name=region)
         
         # Get list of cluster names in the region
@@ -54,6 +56,9 @@ def get_eks_clusters_and_nodegroups(region):
 
 def main():
     try:
+        # Set default region for the session
+        boto3.setup_default_session(region_name='us-east-1')  # Added default region setup
+        
         # Verify current identity
         identity = get_current_identity()
         
