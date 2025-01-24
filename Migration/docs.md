@@ -1,4 +1,4 @@
-Let me help you create a comprehensive checklist for migrating your AWS EKS infrastructure from CLI-based deployment to a Crossplane and Argo CD setup. I'll structure this as a detailed technical document covering key aspects you'll need to consider.
+# INFRASTRUCTURE MIGRATION
 
 Infrastructure Documentation and Assessment Phase
 First, thoroughly document your existing EKS infrastructure to ensure nothing is missed during migration. Begin by examining and documenting:
