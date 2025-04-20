@@ -29,6 +29,15 @@ annotations:
     - ALB-IC triggers the creatio of the ALB load balancer controller and the necessary supporting AWS resources, wheneven and Ingress resouce is created on the cluster with the `kubernetes.io/ingress.class:alb` annotation.
     - Two traffic modes : Instance and IP
 
+- ALBIC vs AWS Load Balancer Controller
+    - ALBIC
+        - Only supports AWS Application Load Balancer
+        - No support after 1.22
+    - AWS LB Controller
+        - Supports both AWS Application and Network Load Balancers
+        - K8S Ingress Resource - AWS Application Load Balancer
+        - K8S Service Resource - AWS Network Load Balancer
+
 
 - Instance Mode:
     - Register nodes within the cluster as the targets
@@ -48,3 +57,4 @@ annotations:
     - 3. Create the Target Group in AWS for each unique service defined in the manifest.
     - 4. Create the Listeners for the Application Load Balancers
     - 5. Create the rules based on the context.
+    - 6. Deleting the Ingress Manifest will delete all the resources created on AWS.
