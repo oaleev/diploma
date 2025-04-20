@@ -43,8 +43,8 @@ annotations:
 
 
 - Process Steps
-    - 1. Controller watch for the events from Ingress resources
-    - 2. Create the Application Load Balancer
+    - 1. Controller watch for the Ingress events from the API server and if it finds the Ingress resources, it will create the AWS resources
+    - 2. Create the Application Load Balancer for the new Ingress resource
     - 3. Create the Target Group
     - 4. Create the Listners
     - 5. Create the rules bases
