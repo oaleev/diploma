@@ -65,7 +65,15 @@ annotations:
         - ALB controller is installed on kube-system namespace
         - Create a service account
             - IAM role arn will be annotated in the load balancer service account
+            - SA is linked to the deployment(pods)
+            - This gets the ability to create the AWS resources
+        - Deloyment will be created
+            - aws load balancer tls certificate
+            - aws load balancer webhook cluster IP service
+        - Admin or the app team will deploy the Ingress manifest file
+        - Ingress resource is created once the Ingress object is created
     - AWS
         - IAM Policy
         - IAM Role
+        - AWS ELB(AWS ApELB changesplication Load Balancer Controller)
 
