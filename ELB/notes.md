@@ -40,3 +40,11 @@ annotations:
     - Register the pods as the targets
     - Traffic reaching the ALB is directly route to pods for the service.
     - Annotation has to be specified as ip : `alb.ingress.kubernetes.io/target-type: ip`
+
+
+- Process Steps
+    - 1. Controller watch for the events from Ingress resources
+    - 2. Create the Application Load Balancer
+    - 3. Create the Target Group
+    - 4. Create the Listners
+    - 5. Create the rules bases
