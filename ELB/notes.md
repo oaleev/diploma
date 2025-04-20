@@ -58,3 +58,14 @@ annotations:
     - 4. Create the Listeners for the Application Load Balancers
     - 5. Create the rules based on the context.
     - 6. Deleting the Ingress Manifest will delete all the resources created on AWS.
+
+
+- Resources created and the order of creation
+    - K8S
+        - ALB controller is installed on kube-system namespace
+        - Create a service account
+            - IAM role arn will be annotated in the load balancer service account
+    - AWS
+        - IAM Policy
+        - IAM Role
+
