@@ -77,3 +77,12 @@ annotations:
         - IAM Role
         - AWS ELB(AWS ApELB changesplication Load Balancer Controller)
 
+
+
+- Pre-requisite
+    - Create IAM Policy and note the ARN
+    - Create the role using the policy
+    - Create a SA with the role ARN as annotation
+    - Install AWS load balancer controller using HELM
+    - Create an IngressClass if using multiple Ingress controllers
+    - Create an Ingress file to create the resources on AWS
